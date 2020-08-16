@@ -1,0 +1,24 @@
+EXE_INC = \
+    -I../../interfacialModels/lnInclude \
+    -I../../interfacialCompositionModels/lnInclude \
+    -I../../phaseSystems/lnInclude \
+    -I../../multiphaseCompressibleMomentumTransportModels/lnInclude \
+    -IalphaContactAngle \
+    -I$(CATCHY_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/reactionThermo/lnInclude \
+    -I$(CATCHY_SRC)/ThermophysicalTransportModels/lnInclude \
+    -I$(LIB_SRC)/MomentumTransportModels/momentumTransportModels/lnInclude \
+    -I$(CATCHY_SRC)/MomentumTransportModels/compressible/lnInclude \
+    -I$(LIB_SRC)/MomentumTransportModels/phaseCompressible/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/gsChemistryModel/lnInclude \
+    -I$(CATCHY_SRC)/combustionModels/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude
+
+LIB_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcatchyCombustionModels \
+    -lcatchyGSChemistryModel \
+    -lcatchyPhaseSystem

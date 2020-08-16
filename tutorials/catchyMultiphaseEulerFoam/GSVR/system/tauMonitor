@@ -1,0 +1,70 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Web:      www.OpenFOAM.org
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+cylindrical_coords
+{
+    type            writeCylindricalCoordinates;
+    libs            ("libcatchyFunctionObjects.so");
+
+    writeControl    writeTime;
+
+    writeFields     false;
+    log             false;
+    
+    axis            2;
+}
+
+
+tau_outlet
+{
+    type            surfaceFieldValue;
+    libs            ("libcatchyFieldFunctionObjects.so");
+
+    writeControl    timeStep;
+    writeInterval   1;
+
+    writeFields     false;
+    log             false;
+
+    regionType      patch;
+
+    fields          (tau.gas);
+    operation       areaIntegrate;
+
+    name            outlet;
+}
+
+tau_cyl325
+{
+    type            surfaceFieldValue;
+    libs            ("libcatchyFieldFunctionObjects.so");
+
+    writeControl    timeStep;
+    writeInterval   1;
+
+    writeFields     false;
+    log             false;
+
+    regionType      sampledSurface;
+
+    fields          (tau.gas);
+    operation       areaIntegrate;
+
+    name            cyl;
+
+    sampledSurfaceDict
+    {
+        type        isoSurface;
+        isoField    radial_coordinate;  
+        isoValue    0.0325; //alpha treshold 1%
+
+        interpolate true;
+    }
+}
+
+// ************************************************************************* //

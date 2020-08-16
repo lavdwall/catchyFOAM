@@ -1,0 +1,12 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+find $WM_PROJECT_DIR/src/ThermophysicalTransportModels -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude ! -name rhoReactionThermo ! -name psiReactionThermo -exec cp -rn {} . \;
+
+find $WM_PROJECT_DIR/src/ThermophysicalTransportModels/rhoReactionThermo -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} rhoReactionThermo \;
+cp -n $WM_PROJECT_DIR/src/ThermophysicalTransportModels/rhoReactionThermo/rhoReactionThermo*.* rhoReactionThermo
+
+wmake libso
+wmake libso rhoReactionThermo
+
+#------------------------------------------------------------------------------

@@ -1,0 +1,10 @@
+combustionModel/combustionModel.C
+CombustionModel/CombustionModel/CombustionModels.C
+
+laminar/laminars.C
+
+noCombustion/noCombustions.C
+
+functionObjects/Qdot/Qdot.C
+
+LIB = $(FOAM_USER_LIBBIN)/libcatchyCombustionModels

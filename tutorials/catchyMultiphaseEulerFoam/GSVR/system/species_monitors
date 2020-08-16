@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Web:      www.OpenFOAM.org
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+inletmonitor_w
+{
+    type            surfaceFieldValue;
+    libs            ("libcatchyFieldFunctionObjects.so");
+
+    writeControl    timeStep;
+    writeInterval   10;
+
+    writeFields     false;
+    log             false;
+
+    name            inlet;
+    fields          (T.gas CH4.gas O2.gas C2H4.gas C2H6.gas CO.gas CO2.gas);
+    operation       weightedAreaAverage;
+    weightField     alphaRhoPhi.gas;
+    regionType      patch;
+}
+
+outletmonitor_w
+{
+    type            surfaceFieldValue;
+    libs            ("libcatchyFieldFunctionObjects.so");
+
+    writeControl    timeStep;
+    writeInterval   10;
+
+    writeFields     false;
+    log             false;
+
+    name            outlet;
+    fields          (T.gas CH4.gas O2.gas C2H4.gas C2H6.gas CO.gas CO2.gas);
+    operation       weightedAreaAverage;
+    weightField     alphaRhoPhi.gas;
+    regionType      patch;
+}
+
+// ************************************************************************* //

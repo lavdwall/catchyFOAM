@@ -1,0 +1,52 @@
+#!/bin/bash
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# set number of processors
+export PBS_NP=6
+
+# copy starting files
+cp -r 0.org 0
+cp system/fvSolution.org system/fvSolution
+cp system/controlDict.org system/controlDict
+cp system/decomposeParDict.org system/decomposeParDict
+sed -i "s/PBS_NP/$PBS_NP/g" system/decomposeParDict
+
+# create chemistry and thermo
+if [ -x "$(command -v canteraToFoam)" ]; then
+    runApplication canteraToFoam constant/mechanism/ocm_polimi31_srla2o3.cti gas constant/mechanism/transportProperties constant/mechanism/chem constant/mechanism/thermo -surface surface1 -transport
+else
+    echo "canteraToFoam not available - copying input files from backup"
+    cp $CATCHY_ETC/backupDicts/mechanisms/ocm_polimi31_srla2o3/* constant/mechanism/
+fi
+
+# make and check mesh
+runApplication fluentMeshToFoam -2D 1.0 -scale 0.001 constant/16slots_11k.cas
+runApplication createPatch -overwrite
+runApplication checkMesh
+
+# create cell sets
+runApplication topoSet
+
+# decompose case and renumber mesh
+runApplication decomposePar
+runParallel renumberMesh -overwrite
+
+# run parallel non-reactive
+runParallel -s nonreactive $(getApplication)
+runApplication -o reconstructPar -latestTime
+
+# run parallel while tracking tau to make RTD
+runApplication setFields -dict system/setFieldsDict.tau
+runApplication -o decomposePar -force
+runParallel -o renumberMesh -overwrite
+sed -i 's/endTime         0.4;/endTime         0.5;/g' system/controlDict
+runParallel -s nonreactive.tau $(getApplication)
+runApplication -o reconstructPar -latestTime
+
+# reactive simulation
+sed -i 's/nSpecieCorrectors   0;/nSpecieCorrectors   1;/g' system/fvSolution
+cp system/controlDict.react system/controlDict
+runParallel -s reactive $(getApplication)

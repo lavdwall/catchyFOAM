@@ -1,0 +1,21 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Web:      www.OpenFOAM.org
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+type            volFieldValue;
+libs            ("libcatchyFieldFunctionObjects.so");
+log             true;
+writeControl    timeStep;
+writeInterval   10;
+writeFields     false;
+regionType      all;
+operation       volIntegrate;
+fields
+(
+    alpha.particles
+);
+// ************************************************************************* //

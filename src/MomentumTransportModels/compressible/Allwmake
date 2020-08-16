@@ -1,0 +1,11 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+find $WM_PROJECT_DIR/src/MomentumTransportModels/compressible -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} . \;
+
+cp -n $WM_PROJECT_DIR/src/MomentumTransportModels/compressible/compressibleMomentumTransportModel.C .
+cp -n $WM_PROJECT_DIR/src/MomentumTransportModels/compressible/compressibleMomentumTransportModel.H .
+
+wmake libso
+
+#------------------------------------------------------------------------------

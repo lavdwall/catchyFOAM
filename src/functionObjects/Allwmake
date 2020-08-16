@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+find $WM_PROJECT_DIR/src/functionObjects/field -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} field \;
+wmake libso field
+
+find $WM_PROJECT_DIR/src/functionObjects/forces -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} forces \;
+wmake libso forces
+
+find $WM_PROJECT_DIR/src/functionObjects/solvers -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} solvers \;
+wmake libso solvers
+
+wmake libso custom
+
+#------------------------------------------------------------------------------

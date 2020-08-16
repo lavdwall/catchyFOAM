@@ -1,0 +1,126 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      phaseProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "../system/caseSettings"
+
+type                catalyticMassTransferMultiphaseSystem;
+
+phases              (particles gas);
+
+particles
+{
+    type            isothermalReactingGSPhaseModel;
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           $cat_diam;
+    }
+
+    residualAlpha   1e-6;
+}
+
+gas
+{
+    type            isothermalReactingPhaseModel;
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           1;
+    }
+
+    residualAlpha   0;
+}
+
+diffusiveMassTransfer
+(
+    (particles in gas)
+    {
+        type            Gunn;
+        Le              1.0;
+    }
+);
+
+reactiveGasExchange
+{
+    gasPhase        gas;
+    exchangePhases  (particles);
+}
+
+blending
+{
+    default
+    {
+        type            none;
+        continuousPhase gas;
+    }
+}
+
+surfaceTension
+(
+    (particles and gas)
+    {
+        type            constant;
+        sigma           0;
+    }
+);
+
+aspectRatio
+();
+
+drag
+(
+    (particles in gas)
+    {
+        type                GidaspowErgunWenYu;
+        residualRe          1e-9;
+        swarmCorrection
+        {
+            type            none;
+        }
+    }
+);
+
+virtualMass
+();
+
+heatTransfer
+(
+    (particles in gas)
+    {
+        type            Gunn;
+        residualAlpha   1e-8;
+    }
+);
+
+phaseTransfer
+();
+
+lift
+();
+
+wallLubrication
+();
+
+turbulentDispersion
+();
+
+interfaceCompression
+();
+
+pMin            10000;
+
+// ************************************************************************* //

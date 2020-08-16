@@ -1,0 +1,351 @@
+reactions
+{
+    un-named-reaction-0
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "2PT(S) + H2 = 2H(S)";
+        A               1.59294917e+15;
+        beta            0.5;
+        Ta              0;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((PT(S) 4(0 -1 0 1)));
+    }
+    un-named-reaction-1
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2PT(S) + O2 = 2O(S)";
+        A               1.89e+17;
+        beta            -0.5;
+        Ta              0;
+    }
+    un-named-reaction-2
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2PT(S) + CH4 = H(S) + CH3(S)";
+        A               1.104813743e+13;
+        beta            0.5;
+        Ta              8659.609563;
+    }
+    un-named-reaction-3
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + O(S) + CH4 = OH(S) + CH3(S)";
+        A               5e+14;
+        beta            0.7;
+        Ta              5051.438912;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 962.1788403 1)));
+    }
+    un-named-reaction-4
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "PT(S) + OH(S) + CH4 = H2O(S) + CH3(S)";
+        A               1.227570826e+16;
+        beta            0.5;
+        Ta              1202.72355;
+    }
+    un-named-reaction-5
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "PT(S) + H2O = H2O(S)";
+        A               236321037.4;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-6
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "PT(S) + CO2 = CO2(S)";
+        A               1007992.982;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-7
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "PT(S) + CO = CO(S)";
+        A               212266268.8;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-8
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "2H(S) = 2PT(S) + H2";
+        A               3.7e+20;
+        beta            0;
+        Ta              8106.35673;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((H(S) 4(0 0 -1202.72355 1)));
+    }
+    un-named-reaction-9
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "2O(S) = 2PT(S) + O2";
+        A               3.7e+20;
+        beta            0;
+        Ta              28324.13961;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 -22647.28445 1)));
+    }
+    un-named-reaction-10
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H2O(S) = PT(S) + H2O";
+        A               4.5e+12;
+        beta            0;
+        Ta              5027.384441;
+    }
+    un-named-reaction-11
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "CO(S) = PT(S) + CO";
+        A               1e+15;
+        beta            0;
+        Ta              17559.76384;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((CO(S) 4(0 0 -3968.987716 1)));
+    }
+    un-named-reaction-12
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CO2(S) = PT(S) + CO2";
+        A               1e+13;
+        beta            0;
+        Ta              3259.380822;
+    }
+    un-named-reaction-13
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "C(S) + O(S) = PT(S) + CO(S)";
+        A               3.7e+18;
+        beta            0;
+        Ta              0;
+    }
+    un-named-reaction-14
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + CO(S) = C(S) + O(S)";
+        A               3.7e+18;
+        beta            0;
+        Ta              28444.41197;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((CO(S) 4(0 0 -3968.987716 1)));
+    }
+    un-named-reaction-15
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "CO(S) + O(S) = PT(S) + CO2(S)";
+        A               3.7e+20;
+        beta            0;
+        Ta              14144.02895;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((CO(S) 4(0 0 -3968.987716 1)));
+    }
+    un-named-reaction-16
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + CO2(S) = CO(S) + O(S)";
+        A               3.7e+18;
+        beta            0;
+        Ta              20843.19913;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 11317.62861 1)));
+    }
+    un-named-reaction-17
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "OH(S) + CO(S) = H(S) + CO2(S)";
+        A               1e+18;
+        beta            0;
+        Ta              4654.54014;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((CO(S) 4(0 0 -3608.170651 1)));
+    }
+    un-named-reaction-18
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(S) + CO2(S) = OH(S) + CO(S)";
+        A               1e+18;
+        beta            0;
+        Ta              1010.287782;
+    }
+    un-named-reaction-19
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "PT(S) + CH3(S) = H(S) + CH2(S)";
+        A               1.26e+21;
+        beta            0;
+        Ta              8455.14656;
+    }
+    un-named-reaction-20
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "H(S) + CH2(S) = PT(S) + CH3(S)";
+        A               3.09e+21;
+        beta            0;
+        Ta              0;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((H(S) 4(0 0 -336.7625941 1)));
+    }
+    un-named-reaction-21
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + CH2(S) = H(S) + CH(S)";
+        A               7.31e+21;
+        beta            0;
+        Ta              7084.041712;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((C(S) 4(0 0 6013.617752 1)));
+    }
+    un-named-reaction-22
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "H(S) + CH(S) = PT(S) + CH2(S)";
+        A               3.09e+21;
+        beta            0;
+        Ta              0;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((H(S) 4(0 0 -336.7625941 1)));
+    }
+    un-named-reaction-23
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + CH(S) = H(S) + C(S)";
+        A               3.09e+21;
+        beta            0;
+        Ta              0;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((H(S) 4(0 0 -336.7625941 1)));
+    }
+    un-named-reaction-24
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(S) + C(S) = PT(S) + CH(S)";
+        A               1.25e+21;
+        beta            0;
+        Ta              16597.585;
+    }
+    un-named-reaction-25
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(S) + O(S) = PT(S) + OH(S)";
+        A               1.28e+20;
+        beta            0;
+        Ta              1347.050376;
+    }
+    un-named-reaction-26
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + OH(S) = H(S) + O(S)";
+        A               7.39e+18;
+        beta            0;
+        Ta              9297.053045;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 -8803.936389 1)));
+    }
+    un-named-reaction-27
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "PT(S) + H2O(S) = H(S) + OH(S)";
+        A               1.15e+18;
+        beta            0;
+        Ta              12195.6168;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 20121.565 1)));
+    }
+    un-named-reaction-28
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2OH(S) = H2O(S) + O(S)";
+        A               7.4e+19;
+        beta            0;
+        Ta              8900.154273;
+    }
+    un-named-reaction-29
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "H2O(S) + O(S) = 2OH(S)";
+        A               1e+19;
+        beta            0;
+        Ta              5183.738502;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((O(S) 4(0 0 28937.52862 1)));
+    }
+    un-named-reaction-30
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "C(S) + H2 = CH2(S)";
+        A               37676710.81;
+        beta            0.5;
+        Ta              3572.088945;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((C(S) 4(0 0 553.2528332 1)));
+    }
+    un-named-reaction-31
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "CH2(S) = C(S) + H2";
+        A               7.69e+13;
+        beta            0;
+        Ta              3018.836112;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((C(S) 4(0 0 6013.617752 1)));
+    }
+    un-named-reaction-32
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(S) + OH(S) = PT(S) + H2O(S)";
+        A               2.04e+20;
+        beta            0;
+        Ta              7964.435351;
+    }
+    un-named-reaction-33
+    {
+        type            irreversibleCoverageDependentArrhenius;
+        reaction        "H(S) + CH3(S) = 2PT(S) + CH4";
+        A               3.3e+20;
+        beta            0;
+        Ta              6013.617752;
+        sden            2.72e-08;
+        ngasOffset      7;
+        coverages       1((H(S) 4(0 0 -336.7625941 1)));
+    }
+    un-named-reaction-34
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H2O(S) + CH3(S) = PT(S) + OH(S) + CH4";
+        A               3.7e+20;
+        beta            0;
+        Ta              13302.12247;
+    }
+    un-named-reaction-35
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH(S) + CH3(S) = PT(S) + O(S) + CH4";
+        A               3.7e+20;
+        beta            0;
+        Ta              10571.94001;
+    }
+}
+Tlow            0;
+Thigh           4.503599627e+15;
+

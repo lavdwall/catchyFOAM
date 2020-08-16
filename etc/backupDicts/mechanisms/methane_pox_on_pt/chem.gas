@@ -1,0 +1,17 @@
+elements        
+5
+(
+O
+H
+C
+N
+Ar
+)
+;
+
+reactions
+{
+}
+Tlow            0;
+Thigh           4.503599627e+15;
+

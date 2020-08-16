@@ -1,0 +1,10 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+wclean
+find . -maxdepth 1 -mindepth 1 -type d  ! -name Make -exec rm -rf {} \;
+
+rm -f compressibleMomentumTransportModel.C
+rm -f compressibleMomentumTransportModel.H
+
+#------------------------------------------------------------------------------

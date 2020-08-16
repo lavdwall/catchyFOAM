@@ -1,0 +1,8 @@
+gsChemistryModel/basicGSChemistryModel/basicGSChemistryModel.C
+gsChemistryModel/basicGSChemistryModel/basicGSChemistryModelNew.C
+
+gsChemistrySolver/gsChemistrySolver/gsChemistrySolvers.C
+
+reactions/makeSurfaceReactions.C
+
+LIB = $(FOAM_USER_LIBBIN)/libcatchyGSChemistryModel

@@ -1,0 +1,16 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+echo "\n====== Running isoOxidativeCouplingMethane tutorial"
+isoOxidativeCouplingMethane/Allrun
+
+echo "\n====== Running adiOxidativeCouplingMethane tutorial"
+adiOxidativeCouplingMethane/Allrun
+
+echo "\n====== Running porousMediaIsoOxidativeCouplingMethane tutorial"
+porousMediaIsoOxidativeCouplingMethane/Allrun
+
+echo "\n====== Running methanePartialOxidation tutorial"
+methanePartialOxidation/Allrun
+
+#------------------------------------------------------------------------------

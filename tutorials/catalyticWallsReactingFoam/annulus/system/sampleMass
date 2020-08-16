@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes graph data for specified fields along a line, specified by start
+    and end points.
+\*---------------------------------------------------------------------------*/
+
+type            sets;
+libs            ("libsampling.so");
+
+setConfigX
+{
+    type        lineUniform;   
+    axis        distance;
+    nPoints     50;
+}
+
+setConfigR
+{
+    type        lineUniform;   
+    axis        z;
+    nPoints     20;
+}
+
+writeControl    writeTime;
+
+interpolationScheme cellPointFace;
+
+setFormat   csv;
+
+sets
+(
+    lineR1
+    {
+        $setConfigX;
+        start (0.010 0 0.002351);
+        end   (0.025 0 0.002351);
+    }
+    lineR2
+    {
+        $setConfigX;
+        start (0.010 0 0.003);
+        end   (0.025 0 0.003);
+    }
+    lineR3
+    {
+        $setConfigX;
+        start (0.010 0 0.0035);
+        end   (0.025 0 0.0035);
+    }
+    lineR4
+    {
+        $setConfigX;
+        start (0.010 0 0.004);
+        end   (0.025 0 0.004);
+    }
+    lineR5
+    {
+        $setConfigX;
+        start (0.010 0 0.004499);
+        end   (0.025 0 0.004499);
+    }
+
+    lineL1
+    {
+        $setConfigR;
+        start (0.010 0 0.002351);
+        end   (0.010 0 0.004499);
+    }
+    lineL2
+    {
+        $setConfigR;
+        start (0.011 0 0.002351);
+        end   (0.011 0 0.004499);
+    }
+    lineL3
+    {
+        $setConfigR;
+        start (0.015 0 0.002351);
+        end   (0.015 0 0.004499);
+    }
+    lineL4
+    {
+        $setConfigR;
+        start (0.020 0 0.002351);
+        end   (0.020 0 0.004499);
+    }
+    lineL5
+    {
+        $setConfigR;
+        start (0.02499 0 0.002351);
+        end   (0.02499 0 0.004499);
+    }
+);
+
+fields  
+(
+    Ux
+    O2
+    H2O
+    H2
+);
+
+// ************************************************************************* //

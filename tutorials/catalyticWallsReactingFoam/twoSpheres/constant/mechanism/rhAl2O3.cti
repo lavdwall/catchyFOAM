@@ -1,0 +1,222 @@
+"""
+***********************************************************************
+****                                                                  *
+****     H2/O2 OVER RH - SURFASE MECHANISM                            *
+****     thermodynamically constant (273 - 1273K)                     *
+****                                                                  *
+****     References:                                                  *
+****     C. Karakaya, O. Deutschmann, Chemical Engineering Science,   *
+****     89 (2012) 171-184                                            *
+****     www.detchem.com/mechanisms                                   *
+****     KIT (Karlsruhe Institute of Technology)                      *
+****     Contact: mail@detchem.com (O. Deutschmann)                   *
+****     www.detchem.com/mechanisms                                   *
+****                                                                  *
+****                                                                  *
+****     Kinetic data:                                                *
+****      k = A * T**b * exp (-Ea/RT)         A          b       Ea   *
+****                                       (cm,mol,s)    -     kJ/mol *
+****     (CHEMKIN format)                                             *
+****                                                                  *
+***********************************************************************
+"""
+
+units(length='cm', time='s', quantity='mol', act_energy='cal/mol')
+
+ideal_gas(name='gas',
+          elements="C O H N Rh",
+          species="""H2   O2   H2O  N2""",
+          reactions='gas-*',
+          transport='Mix',
+          initial_state=state(temperature=300.0, pressure=OneAtm))
+
+ideal_interface(name=u'Rh_surface',
+                elements="C O H N Rh",
+                species="""Rh(s)   H2O(s)  H(s)    OH(s)   O(s)""",
+                site_density=2.72e-09,
+                phases="gas",
+          reactions='Rh_surface-*',
+                initial_state=state(temperature=300.0, pressure=OneAtm))
+
+#-------------------------------------------------------------------------------
+# Species data
+#-------------------------------------------------------------------------------
+
+species(name=u'H2',
+        atoms='H:2',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 3.35535140E+00,  5.01361440E-04, -2.30069080E-07,
+                      -4.79053240E-10,  4.85225850E-13, -1.01916260E+03,
+                      -3.54772280E+00]),
+                NASA([1000.00, 5000.00],
+                     [ 3.06670950E+00,  5.74737550E-04,  1.39383190E-08,
+                      -2.54835180E-11,  2.90985740E-15, -8.65474120E+02,
+                      -1.77984240E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.92,
+                                well_depth=38.0,
+                                polar=0.79,
+                                rot_relax=280.0),
+        note=u'(adjust)')
+
+species(name=u'O2',
+        atoms='O:2',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 3.78371350E+00, -3.02336340E-03,  9.94927510E-06,
+                      -9.81891010E-09,  3.30318250E-12, -1.06381070E+03,
+                       3.64163450E+00]),
+                NASA([1000.00, 5000.00],
+                     [ 3.61221390E+00,  7.48531660E-04, -1.98206470E-07,
+                       3.37490080E-11, -2.39073740E-15, -1.19781510E+03,
+                       3.67033070E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                polar=1.6,
+                                rot_relax=3.8),
+        note=u'(adjust)')
+
+species(name=u'H2O',
+        atoms='H:2 O:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 4.16772340E+00, -1.81149700E-03,  5.94712880E-06,
+                      -4.86920210E-09,  1.52919910E-12, -3.02899690E+04,
+                      -7.31354740E-01]),
+                NASA([1000.00, 5000.00],
+                     [ 2.61104720E+00,  3.15631300E-03, -9.29854380E-07,
+                       1.33315380E-10, -7.46893510E-15, -2.98681670E+04,
+                       7.20912680E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=2.605,
+                                well_depth=572.4,
+                                dipole=1.844,
+                                rot_relax=4.0),
+        note=u'(adjust)')
+
+species(name=u'N2',
+        atoms='N:2',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 3.29867700E+00,  1.40823990E-03, -3.96322180E-06,
+                       5.64151480E-09, -2.44485400E-12, -1.02090000E+03,
+                       3.95037200E+00]),
+                NASA([1000.00, 5000.00],
+                     [ 2.92663788E+00,  1.48797700E-03, -5.68476030E-07,
+                       1.00970400E-10, -6.75335090E-15, -9.22795384E+02,
+                       5.98054018E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.621,
+                                well_depth=97.53,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+species(name=u'Rh(s)',
+        atoms='Rh:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00]),
+                NASA([1000.00, 3000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00])))
+
+species(name=u'H2O(s)',
+        atoms='H:2 O:1 Rh:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00]),
+                NASA([1000.00, 3000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00])))
+
+species(name=u'H(s)',
+        atoms='H:1 Rh:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00]),
+                NASA([1000.00, 3000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00])))
+
+species(name=u'OH(s)',
+        atoms='H:1 O:1 Rh:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00]),
+                NASA([1000.00, 3000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00])))
+
+species(name=u'O(s)',
+        atoms='O:1 Rh:1',
+        thermo=(NASA([300.00, 1000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00]),
+                NASA([1000.00, 3000.00],
+                     [ 0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00])))
+
+#-------------------------------------------------------------------------------
+# Reaction data
+#-------------------------------------------------------------------------------
+disable_motz_wise()
+
+# Reaction 1
+reaction('H2 => H2', [1.000000e+01, 0.0, 10000.0],
+         id='gas-1')
+
+# Rh_surface Reaction 1
+surface_reaction('H2 + Rh(s) + Rh(s) => H(s) + H(s)', stick(3.000000e-02, 0.0, (0.0, 'kJ/mol')),
+                 id='Rh_surface-1')
+
+# Rh_surface Reaction 2
+surface_reaction('O2 + Rh(s) + Rh(s) => O(s) + O(s)', stick(1.000000e-02, 0.0, (0.0, 'kJ/mol')),
+                 id='Rh_surface-2')
+
+# Rh_surface Reaction 3
+surface_reaction('H2O + Rh(s) => H2O(s)', stick(1.000000e-01, 0.0, (0.0, 'kJ/mol')),
+                 id='Rh_surface-3')
+
+# Rh_surface Reaction 4
+surface_reaction('H(s) + H(s) => Rh(s) + Rh(s) + H2', [5.574000e+19, 0.239, (59.691, 'kJ/mol')],
+                 id='Rh_surface-4')
+
+# Rh_surface Reaction 5
+surface_reaction('O(s) + O(s) => Rh(s) + Rh(s) + O2', [5.329000e+22, -0.137, (386.995, 'kJ/mol')],
+                 id='Rh_surface-5')
+
+# Rh_surface Reaction 6
+surface_reaction('H2O(s) => Rh(s) + H2O', [6.858000e+14, -0.28, (44.993, 'kJ/mol')],
+                 id='Rh_surface-6')
+
+# Rh_surface Reaction 7
+surface_reaction('O(s) + H(s) => OH(s) + Rh(s)', [8.826000e+21, -0.048, (73.365, 'kJ/mol')],
+                 id='Rh_surface-7')
+
+# Rh_surface Reaction 8
+surface_reaction('OH(s) + Rh(s) => O(s) + H(s)', [1.000000e+21, 0.045, (48.041, 'kJ/mol')],
+                 id='Rh_surface-8')
+
+# Rh_surface Reaction 9
+surface_reaction('OH(s) + H(s) => H2O(s) + Rh(s)', [1.743000e+22, -0.127, (41.731, 'kJ/mol')],
+                 id='Rh_surface-9')
+
+# Rh_surface Reaction 10
+surface_reaction('H2O(s) + Rh(s) => OH(s) + H(s)', [5.408000e+22, 0.129, (98.22, 'kJ/mol')],
+                 id='Rh_surface-10')
+
+# Rh_surface Reaction 11
+surface_reaction('OH(s) + OH(s) => O(s) + H2O(s)', [5.736000e+20, -0.081, (121.594, 'kJ/mol')],
+                 id='Rh_surface-11')
+
+# Rh_surface Reaction 12
+surface_reaction('O(s) + H2O(s) => OH(s) + OH(s)', [1.570000e+22, 0.081, (203.407, 'kJ/mol')],
+                 id='Rh_surface-12')

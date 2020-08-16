@@ -1,0 +1,33 @@
+// gas inlet variables
+NO_RAT  20;
+CO_RAT  4;
+
+p_out   1.1e5;
+T_in    1023.0;
+
+U_inj   VEL_IN;
+F_inj   12.0;
+
+// catalyst feed variables
+tot_cat_mass    0.012;
+start_feed_time 0.0025;
+feed_duration   0.0475;
+
+// catalyst properties
+cat_density     2950;
+cat_diam        5e-4;
+cat_cp          400;
+
+cat_por         0.27;
+cat_av          5.9e6;
+
+// 2D/3D correction
+corr2D          15.0;
+
+// calculations
+Y_CH4   #calc "$CO_RAT*16.0/($CO_RAT*16.0+$NO_RAT*28.0+32.0)";
+Y_O2    #calc "32.0/($CO_RAT*16.0+$NO_RAT*28.0+32.0)";
+Y_N2    #calc "$NO_RAT*28.0/($CO_RAT*16.0+$NO_RAT*28.0+32.0)";
+
+vol_flow #calc "($F_inj)/($corr2D)/4.0/3600.0*1.01325e5/273.0*($T_in)/$p_out";
+massRate #calc "($tot_cat_mass)/($feed_duration)/4.0/($corr2D)";

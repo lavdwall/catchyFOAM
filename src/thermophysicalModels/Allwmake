@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+wmake libso specie
+wmake libso thermophysicalProperties
+wmake libso basic
+wmake libso reactionThermo
+wmake libso chemistryModel
+wmake libso gsChemistryModel
+wmake libso SLGThermo
+wmake libso solidThermo
+
+#------------------------------------------------------------------------------

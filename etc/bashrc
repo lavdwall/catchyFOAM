@@ -1,0 +1,38 @@
+#----------------------------------*-sh-*--------------------------------------
+# =========                 |
+# \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+#  \\    /   O peration     | Website:  https://openfoam.org
+#   \\  /    A nd           | Copyright (C) 2011-2020 OpenFOAM Foundation
+#    \\/     M anipulation  |
+#------------------------------------------------------------------------------
+#
+# File
+#     etc/bashrc
+#
+# Description
+#     Startup file for catchyFOAM
+#
+#------------------------------------------------------------------------------
+
+################################################################################
+# USER EDITABLE PART: Changes made here may be lost with the next upgrade
+#
+# Location of catchyFOAM files
+# Please set to the appropriate path if the default is not correct
+export CATCHY_DIR=$HOME/OpenFOAM/catchyFOAM-8
+#
+# Location of cantera installation
+# Please set to the appropriate path if the default is not correct
+# (canteraToFoam installation is skipped when variable is empty)
+export CANTERA_DIR=$HOME/.local
+#
+# END OF (NORMAL) USER EDITABLE PART
+################################################################################
+
+export CATCHY_ETC=$CATCHY_DIR/etc
+export CATCHY_BASHRC=$CATCHY_ETC/bashrc
+export CATCHY_SRC=$CATCHY_DIR/src
+export CATCHY_SOLVERS=$CATCHY_DIR/applications/solvers
+export CATCHY_UTILITIES=$CATCHY_DIR/applications/utilities
+
+#------------------------------------------------------------------------------

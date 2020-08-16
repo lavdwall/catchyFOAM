@@ -1,0 +1,20 @@
+include $(CANTERA_DIR)/include/cantera/Cantera.mak
+
+EXE_INC = \
+    -I$(CANTERA_DIR)/include \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/solidSpecie/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/reactionThermo/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/chemistryModel/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/gsChemistryModel/lnInclude
+
+EXE_LIBS = \
+    -L$(CANTERA_DIR)/lib \
+    $(CANTERA_LIBS) \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcatchyGSChemistryModel \
+    -lcatchyChemistryModel \
+    -lcatchyReactionThermophysicalModels \
+    -lcatchyFluidThermophysicalModels \
+    -lcatchySpecie

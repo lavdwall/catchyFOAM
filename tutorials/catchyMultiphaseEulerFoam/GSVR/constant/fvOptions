@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "../system/caseSettings"
+
+injector
+{
+    timeStart       $start_feed_time;
+    duration        $feed_duration;
+    selectionMode   cellSet;
+    cellSet         c0;
+}
+
+options
+{
+    massSource
+    {
+        type            semiImplicitSource;
+        
+        $injector;
+
+        volumeMode      absolute;
+        sources
+        {
+            thermo:rho.particles
+            {
+                explicit    $massRate; // kg/s
+                implicit    0;
+            }
+            h.particles
+            {
+                explicit    0;
+                implicit    $massRate;
+            }
+        }
+    }
+}
+
+//************************************************************************** //

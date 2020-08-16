@@ -1,0 +1,7 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+find $WM_PROJECT_DIR/src/specieTransfer -mindepth 1 -maxdepth 1 -type d  ! -name Make ! -name lnInclude -exec cp -rn {} . \;
+wmake libso
+
+#------------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+EXE_INC = \
+    -I$(CATCHY_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/thermophysicalProperties/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/reactionThermo/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude
+
+LIB_LIBS = \
+    -lfiniteVolume

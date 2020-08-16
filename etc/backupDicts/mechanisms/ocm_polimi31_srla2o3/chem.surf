@@ -1,0 +1,438 @@
+reactions
+{
+    un-named-reaction-0
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2_S_ + O2 = 2O_S";
+        A               3.719e+16;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-1
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2O_S = 2_S_ + O2";
+        A               2.39e+20;
+        beta            0;
+        Ta              13590.77612;
+    }
+    un-named-reaction-2
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH4 = OH_S + CH3";
+        A               923000000;
+        beta            0.5;
+        Ta              15635.40616;
+    }
+    un-named-reaction-3
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CH3 = O_S + CH4";
+        A               953400000;
+        beta            0.5;
+        Ta              10307.34083;
+    }
+    un-named-reaction-4
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2OH_S = O_S + H2O_S";
+        A               2.25e+18;
+        beta            0;
+        Ta              21528.75155;
+    }
+    un-named-reaction-5
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + H2O_S = 2OH_S";
+        A               2.125e+18;
+        beta            0;
+        Ta              4786.839731;
+    }
+    un-named-reaction-6
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H6 = OH_S + C2H5";
+        A               674200000;
+        beta            0.5;
+        Ta              13470.50376;
+    }
+    un-named-reaction-7
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + C2H5 = O_S + C2H6";
+        A               685700000;
+        beta            0.5;
+        Ta              11041.00219;
+    }
+    un-named-reaction-8
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H4 = OH_S + C2H3";
+        A               698000000;
+        beta            0.5;
+        Ta              16477.31264;
+    }
+    un-named-reaction-9
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + C2H3 = O_S + C2H4";
+        A               710900000;
+        beta            0.5;
+        Ta              10018.68718;
+    }
+    un-named-reaction-10
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH3 = CH3O_S";
+        A               618800;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-11
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CH3O_S = O_S + CH3";
+        A               2.235e+13;
+        beta            0;
+        Ta              37524.97477;
+    }
+    un-named-reaction-12
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "_S_ + CO2 = CO2_S";
+        A               8582000;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-13
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CO2_S = _S_ + CO2";
+        A               2.235e+13;
+        beta            0;
+        Ta              10463.69489;
+    }
+    un-named-reaction-14
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH3O_S = OH_S + CH2O_S";
+        A               1.234e+18;
+        beta            0;
+        Ta              4991.302734;
+    }
+    un-named-reaction-15
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CH2O_S = O_S + CH3O_S";
+        A               1.275e+18;
+        beta            0;
+        Ta              28985.63757;
+    }
+    un-named-reaction-16
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH2O_S = OH_S + CHO_S";
+        A               1.275e+18;
+        beta            0;
+        Ta              14793.49967;
+    }
+    un-named-reaction-17
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CHO_S = O_S + CH2O_S";
+        A               1.319e+18;
+        beta            0;
+        Ta              19123.30445;
+    }
+    un-named-reaction-18
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CHO_S = OH_S + CO_S";
+        A               1.319e+18;
+        beta            0;
+        Ta              887.6099802;
+    }
+    un-named-reaction-19
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CO_S = O_S + CHO_S";
+        A               1.366e+18;
+        beta            0;
+        Ta              33074.89764;
+    }
+    un-named-reaction-20
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CO_S = _S_ + CO2_S";
+        A               1.366e+18;
+        beta            0;
+        Ta              1063.207619;
+    }
+    un-named-reaction-21
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "_S_ + CO2_S = O_S + CO_S";
+        A               8.692e+17;
+        beta            0;
+        Ta              29827.54405;
+    }
+    un-named-reaction-22
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "_S_ + CO = CO_S";
+        A               39530;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-23
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CO_S = _S_ + CO";
+        A               2.28e+13;
+        beta            0;
+        Ta              8948.263215;
+    }
+    un-named-reaction-24
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H2O_S = _S_ + H2O";
+        A               2.235e+13;
+        beta            0;
+        Ta              4185.477955;
+    }
+    un-named-reaction-25
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "_S_ + H2O = H2O_S";
+        A               66630000;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-26
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H4 = C2H4O_S";
+        A               38250;
+        beta            0.5;
+        Ta              4919.139321;
+    }
+    un-named-reaction-27
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "C2H4O_S = O_S + C2H4";
+        A               2.235e+13;
+        beta            0;
+        Ta              29466.72699;
+    }
+    un-named-reaction-28
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H4O_S = OH_S + C2H3O_S";
+        A               9.943e+18;
+        beta            0;
+        Ta              12508.32492;
+    }
+    un-named-reaction-29
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + C2H3O_S = O_S + C2H4O_S";
+        A               9.983e+18;
+        beta            0;
+        Ta              21408.4792;
+    }
+    un-named-reaction-30
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H3O_S = CH2O_S + CHO_S";
+        A               9.983e+18;
+        beta            0;
+        Ta              1371.104847;
+    }
+    un-named-reaction-31
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CH2O_S + CHO_S = O_S + C2H3O_S";
+        A               1.458e+18;
+        beta            0;
+        Ta              22611.20275;
+    }
+    un-named-reaction-32
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + C2H5 = OH_S + C2H4";
+        A               685700000;
+        beta            0.5;
+        Ta              4353.859253;
+    }
+    un-named-reaction-33
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + C2H4 = O_S + C2H5";
+        A               698000000;
+        beta            0.5;
+        Ta              33555.98706;
+    }
+    un-named-reaction-34
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH2O = OH_S + HCO";
+        A               674700000;
+        beta            0.5;
+        Ta              11077.0839;
+    }
+    un-named-reaction-35
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + HCO = O_S + CH2O";
+        A               686300000;
+        beta            0.5;
+        Ta              13350.23141;
+    }
+    un-named-reaction-36
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + HCO = OH_S + CO";
+        A               686300000;
+        beta            0.5;
+        Ta              1599.622322;
+    }
+    un-named-reaction-37
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CO = O_S + HCO";
+        A               698500000;
+        beta            0.5;
+        Ta              41734.5072;
+    }
+    un-named-reaction-38
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + CH3O = OH_S + CH2O";
+        A               663600000;
+        beta            0.5;
+        Ta              2261.120275;
+    }
+    un-named-reaction-39
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + CH2O = O_S + CH3O";
+        A               674700000;
+        beta            0.5;
+        Ta              39810.14952;
+    }
+    un-named-reaction-40
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + H2 = OH_S + H";
+        A               2604000000;
+        beta            0.5;
+        Ta              15274.58909;
+    }
+    un-named-reaction-41
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + H = O_S + H2";
+        A               3682000000;
+        beta            0.5;
+        Ta              10439.64042;
+    }
+    un-named-reaction-42
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + H2O2 = OH_S + HO2";
+        A               633900000;
+        beta            0.5;
+        Ta              10595.99448;
+    }
+    un-named-reaction-43
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + HO2 = O_S + H2O2";
+        A               643500000;
+        beta            0.5;
+        Ta              14793.49967;
+    }
+    un-named-reaction-44
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + HO2 = OH_S + O2";
+        A               643500000;
+        beta            0.5;
+        Ta              5941.454339;
+    }
+    un-named-reaction-45
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + O2 = O_S + HO2";
+        A               653500000;
+        beta            0.5;
+        Ta              28745.09286;
+    }
+    un-named-reaction-46
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "_S_ + HO2 = O_S + OH";
+        A               643500000;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-47
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + OH = _S_ + HO2";
+        A               896400000;
+        beta            0.5;
+        Ta              3054.917818;
+    }
+    un-named-reaction-48
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + H2O = OH_S + OH";
+        A               871000000;
+        beta            0.5;
+        Ta              20927.38978;
+    }
+    un-named-reaction-49
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + OH = O_S + H2O";
+        A               896400000;
+        beta            0.5;
+        Ta              8527.309973;
+    }
+    un-named-reaction-50
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "O_S + OH = OH_S + O";
+        A               896400000;
+        beta            0.5;
+        Ta              14552.95496;
+    }
+    un-named-reaction-51
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + O = O_S + OH";
+        A               924300000;
+        beta            0.5;
+        Ta              10680.18513;
+    }
+    un-named-reaction-52
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "CH2O_S + CH3 = OH_S + C2H4";
+        A               0;
+        beta            0;
+        Ta              0;
+    }
+    un-named-reaction-53
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "OH_S + C2H4 = CH2O_S + CH3";
+        A               0;
+        beta            0;
+        Ta              10836.53919;
+    }
+}
+Tlow            0;
+Thigh           4.503599627e+15;
+

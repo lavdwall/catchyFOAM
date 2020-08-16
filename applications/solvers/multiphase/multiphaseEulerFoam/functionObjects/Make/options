@@ -1,0 +1,13 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(CATCHY_SRC)/functionObjects/field/lnInclude \
+    -I$(LIB_SRC)/fileFormats/lnInclude \
+    -I../interfacialModels/lnInclude \
+    -I../phaseSystems/lnInclude
+
+LIB_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcatchyFieldFunctionObjects \
+    -lfileFormats \
+    -lfiniteVolume

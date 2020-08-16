@@ -1,0 +1,291 @@
+species         
+11
+(
+PT(S)
+H(S)
+H2O(S)
+OH(S)
+CO(S)
+CO2(S)
+CH3(S)
+CH2(S)
+CH(S)
+C(S)
+O(S)
+)
+;
+
+H(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+O(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+CH(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+OH(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+CH3(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+C(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+PT(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+CH2(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+CO(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+CO2(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+H2O(S)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}

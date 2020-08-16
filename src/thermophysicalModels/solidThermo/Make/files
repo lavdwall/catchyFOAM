@@ -1,0 +1,5 @@
+solidThermo/solidThermo.C
+solidPressureThermo/solidPressureThermo.C
+heSolidThermo/heSolidThermos.C
+
+LIB = $(FOAM_USER_LIBBIN)/libcatchySolidThermo

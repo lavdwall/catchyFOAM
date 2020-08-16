@@ -1,0 +1,105 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      phaseProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type                reactiveGasExchangeMultiphaseSystem;
+
+phases              (particles gas);
+
+particles
+{
+    type            stationaryReactingGSPhaseModel;
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           5e-4;
+    }
+
+    residualAlpha   1e-6;
+}
+
+gas
+{
+    type            reactingPhaseModel;
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           1;
+    }
+
+    residualAlpha   0;
+}
+
+reactiveGasExchange
+{
+    gasPhase        gas;
+    exchangePhases  (particles);
+}
+
+blending
+{
+    default
+    {
+        type            none;
+        continuousPhase gas;
+    }
+}
+
+surfaceTension
+(
+    (particles and gas)
+    {
+        type            constant;
+        sigma           0;
+    }
+);
+
+aspectRatio
+();
+
+drag
+();
+
+virtualMass
+();
+
+heatTransfer
+(
+    (particles in gas)
+    {
+        type            Gunn;
+        residualAlpha   0.0;
+    }
+);
+
+phaseTransfer
+();
+
+lift
+();
+
+wallLubrication
+();
+
+turbulentDispersion
+();
+
+interfaceCompression
+();
+
+pMin            10000;
+
+// ************************************************************************* //

@@ -1,0 +1,25 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+echo "\n====== Running isothermalGasonly tutorial"
+isothermalGasonly/Allrun
+
+echo "\n====== Running isothermalCoupled tutorial"
+isothermalCoupled/Allrun
+
+echo "\n====== Running isothermalSegregated tutorial"
+isothermalSegregated/Allrun
+
+echo "\n====== Running isothermalSegregatedMassTransfer tutorial"
+isothermalSegregatedMassTransfer/Allrun
+
+echo "\n====== Running adiabaticCoupledGasheat tutorial"
+adiabaticCoupledGasheat/Allrun
+
+echo "\n====== Running adiabaticCoupledSolidheat tutorial"
+adiabaticCoupledSolidheat/Allrun
+
+echo "\n====== Running adiabaticSegregatedMassTransfer tutorial"
+adiabaticSegregatedMassTransfer/Allrun
+
+#------------------------------------------------------------------------------

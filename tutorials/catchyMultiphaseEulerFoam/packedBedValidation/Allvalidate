@@ -1,0 +1,39 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+echo "\n====== Running validation for isothermalGasonly tutorial"
+cd isothermalGasonly
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for isothermalCoupled tutorial"
+cd isothermalCoupled
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for isothermalSegregated tutorial"
+cd isothermalSegregated
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for isothermalSegregatedMassTransfer tutorial"
+cd isothermalSegregatedMassTransfer
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for adiabaticCoupledGasheat tutorial"
+cd adiabaticCoupledGasheat
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for adiabaticCoupledSolidheat tutorial"
+cd adiabaticCoupledSolidheat
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for adiabaticSegregatedMassTransfer tutorial"
+cd adiabaticSegregatedMassTransfer
+python3 validate.py
+cd ..
+
+#------------------------------------------------------------------------------

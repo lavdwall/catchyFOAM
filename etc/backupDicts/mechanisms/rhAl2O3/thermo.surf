@@ -1,0 +1,135 @@
+species         
+5
+(
+Rh(s)
+H2O(s)
+H(s)
+OH(s)
+O(s)
+)
+;
+
+Rh(s)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+H2O(s)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+OH(s)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+O(s)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}
+
+H(s)
+{
+    specie
+    {
+        molWeight       100;
+        size            1;
+        surfaceDensity  2.72e-08;
+    }
+    equationOfState
+    {
+        rho             2300;
+    }
+    thermodynamics
+    {
+        Cp              400;
+        Hf              0;
+        Cv              400;
+    }
+    transport
+    {
+        mu              0;
+        Pr              1;
+    }
+}

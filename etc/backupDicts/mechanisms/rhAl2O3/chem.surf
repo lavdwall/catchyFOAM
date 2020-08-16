@@ -1,0 +1,102 @@
+reactions
+{
+    un-named-reaction-0
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2Rh(s) + H2 = 2H(s)";
+        A               1.038879894e+15;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-1
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2Rh(s) + O2 = 2O(s)";
+        A               8.692164429e+13;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-2
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "Rh(s) + H2O = H2O(s)";
+        A               31509471.66;
+        beta            0.5;
+        Ta              0;
+    }
+    un-named-reaction-3
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2H(s) = 2Rh(s) + H2";
+        A               5.574e+18;
+        beta            0.239;
+        Ta              7179.177145;
+    }
+    un-named-reaction-4
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2O(s) = 2Rh(s) + O2";
+        A               5.329e+21;
+        beta            -0.137;
+        Ta              46544.80004;
+    }
+    un-named-reaction-5
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H2O(s) = Rh(s) + H2O";
+        A               6.858e+14;
+        beta            -0.28;
+        Ta              5411.41407;
+    }
+    un-named-reaction-6
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(s) + O(s) = Rh(s) + OH(s)";
+        A               8.826e+20;
+        beta            -0.048;
+        Ta              8823.781328;
+    }
+    un-named-reaction-7
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "Rh(s) + OH(s) = H(s) + O(s)";
+        A               1e+20;
+        beta            0.045;
+        Ta              5778.004209;
+    }
+    un-named-reaction-8
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H(s) + OH(s) = Rh(s) + H2O(s)";
+        A               1.743e+21;
+        beta            -0.127;
+        Ta              5019.085648;
+    }
+    un-named-reaction-9
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "Rh(s) + H2O(s) = H(s) + OH(s)";
+        A               5.408e+21;
+        beta            0.129;
+        Ta              11813.15071;
+    }
+    un-named-reaction-10
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "2OH(s) = H2O(s) + O(s)";
+        A               5.736e+19;
+        beta            -0.081;
+        Ta              14624.39674;
+    }
+    un-named-reaction-11
+    {
+        type            irreversibleSurfaceArrhenius;
+        reaction        "H2O(s) + O(s) = 2OH(s)";
+        A               1.57e+21;
+        beta            0.081;
+        Ta              24464.23892;
+    }
+}
+Tlow            0;
+Thigh           4.503599627e+15;
+

@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+CANTERA_MAK_FILE=$CANTERA_DIR/include/cantera/Cantera.mak
+if [ -f $CANTERA_MAK_FILE ]; then
+    wmake thermophysical/canteraToFoam
+else
+    echo "\nWARNING: "
+    echo "Cantera.mak not found: skipping canteraToFoam installation"
+    echo "\n==> To compile canteraToFoam: install cantera and set the"
+    echo "environment variable CANTERA_DIR to the appropriate installation path"
+    echo "(this can be done in $CATCHY_DIR/etc/bashrc)\n"
+fi
+
+#------------------------------------------------------------------------------

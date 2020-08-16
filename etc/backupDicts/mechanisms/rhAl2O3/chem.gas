@@ -1,0 +1,25 @@
+elements        
+5
+(
+C
+O
+H
+N
+Rh
+)
+;
+
+reactions
+{
+    un-named-reaction-0
+    {
+        type            irreversibleArrhenius;
+        reaction        "H2 = H2";
+        A               10;
+        beta            0;
+        Ta              5032.195335;
+    }
+}
+Tlow            0;
+Thigh           4.503599627e+15;
+

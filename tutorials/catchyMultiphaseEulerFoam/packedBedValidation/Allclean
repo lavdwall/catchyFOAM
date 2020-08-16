@@ -1,0 +1,12 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+isothermalGasonly/Allclean
+isothermalCoupled/Allclean
+isothermalSegregated/Allclean
+isothermalSegregatedMassTransfer/Allclean
+adiabaticCoupledGasheat/Allclean
+adiabaticCoupledSolidheat/Allclean
+adiabaticSegregatedMassTransfer/Allclean
+
+#------------------------------------------------------------------------------

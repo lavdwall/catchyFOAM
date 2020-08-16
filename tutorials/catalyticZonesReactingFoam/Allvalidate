@@ -1,0 +1,24 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+echo "\n====== Running validation for isoOxidativeCouplingMethane tutorial"
+cd isoOxidativeCouplingMethane
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for adiOxidativeCouplingMethane tutorial"
+cd adiOxidativeCouplingMethane
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for porousMediaIsoOxidativeCouplingMethane tutorial"
+cd porousMediaIsoOxidativeCouplingMethane
+python3 validate.py
+cd ..
+
+echo "\n====== Running validation for methanePartialOxidation tutorial"
+cd methanePartialOxidation
+python3 validate.py
+cd ..
+
+#------------------------------------------------------------------------------

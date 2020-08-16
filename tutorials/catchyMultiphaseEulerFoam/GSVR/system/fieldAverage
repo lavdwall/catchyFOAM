@@ -1,0 +1,33 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Web:      www.OpenFOAM.org
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+fieldAverage1
+{
+    type            fieldAverage;
+    libs            ( "libcatchyFieldFunctionObjects.so" );
+    writeControl    writeTime;
+
+    timeStart       0.3; 
+    enabled         yes;
+
+    restartOnRestart    false;
+    restartOnOutput     false;
+    periodicRestart     false;
+    //restartPeriod       0.002;
+
+    fields
+    (
+        alpha.gas
+        alpha.particles
+        U.gas        
+        U.particles
+        Theta.particles
+        p_rgh
+    );
+}
+// ************************************************************************* //

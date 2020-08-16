@@ -1,0 +1,12 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+thermophysicalModels/Allwmake
+MomentumTransportModels/compressible/Allwmake
+ThermophysicalTransportModels/Allwmake
+combustionModels/Allwmake
+fvOptions/Allwmake
+functionObjects/Allwmake
+specieTransfer/Allwmake
+
+#------------------------------------------------------------------------------

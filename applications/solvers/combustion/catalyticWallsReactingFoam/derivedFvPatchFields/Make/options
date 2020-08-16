@@ -1,0 +1,38 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude \
+    -I$(LIB_SRC)/MomentumTransportModels/momentumTransportModels/lnInclude \
+    -I$(CATCHY_SRC)/MomentumTransportModels/compressible/lnInclude \
+    -I$(CATCHY_SRC)/ThermophysicalTransportModels/lnInclude \
+    -I$(CATCHY_SRC)/ThermophysicalTransportModels/rhoReactionThermo/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/reactionThermo/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/chemistryModel/lnInclude \
+    -I$(CATCHY_SRC)/thermophysicalModels/gsChemistryModel/lnInclude \
+    -I$(LIB_SRC)/ODE/lnInclude \
+    -I$(CATCHY_SRC)/combustionModels/lnInclude
+
+
+LIB_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcatchyFluidThermophysicalModels \
+    -lcatchySpecie \
+    -lcatchyChemistryModel \
+    -lcatchyGSChemistryModel \
+    -lODE \
+    -lcatchyCombustionModels \
+    -lcatchyReactionThermophysicalModels \
+    -lmomentumTransportModels \
+    -lcatchyFluidThermoMomentumTransportModels \
+    -lcatchyFluidThermophysicalModels \
+    -lcatchySpecie \
+    -lcatchyChemistryModel \
+    -lcatchyGSChemistryModel \
+    -lcatchyThermophysicalTransportModels \
+    -lcatchyRhoReactionThermophysicalTransportModels \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lsampling \
+    -lcatchyFvOptions

@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+wclean field
+find field -mindepth 1 -maxdepth 1 -type d  ! -name Make -exec rm -r {} \;
+
+wclean forces
+find forces -mindepth 1 -maxdepth 1 -type d  ! -name Make -exec rm -r {} \;
+
+wclean solvers
+find solvers -mindepth 1 -maxdepth 1 -type d  ! -name Make -exec rm -r {} \;
+
+wclean custom
+
+#------------------------------------------------------------------------------

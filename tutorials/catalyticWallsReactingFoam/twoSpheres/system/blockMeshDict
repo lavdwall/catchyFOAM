@@ -1,0 +1,188 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+rcyl  3.0;
+rbigcyl 3.5;
+
+xmin  -19.0;
+xmax  6.0;
+ymax  5.0;
+z     0.1;       
+
+ncyl_res 30;
+ncyl_bl 10;
+nax1 160;
+nax2 30;
+nrad 30;
+
+vertices        
+(
+    ($rcyl      0       0) //0
+    (#calc "$rcyl*cos(constant::mathematical::pi/4)" #calc "$rcyl*sin(constant::mathematical::pi/4)"  0.0) //1
+    (#calc "$rcyl*cos(constant::mathematical::pi*2/4)" #calc "$rcyl*sin(constant::mathematical::pi*2/4)"  0.0) //2
+    (#calc "$rcyl*cos(constant::mathematical::pi*3/4)" #calc "$rcyl*sin(constant::mathematical::pi*3/4)"  0.0) //3
+    (#calc "-$rcyl" 0  0) //4
+
+    ($rbigcyl      0       0) //5
+    (#calc "$rbigcyl*cos(constant::mathematical::pi/4)" #calc "$rbigcyl*sin(constant::mathematical::pi/4)"  0.0) //6
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*2/4)" #calc "$rbigcyl*sin(constant::mathematical::pi*2/4)"  0.0) //7
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*3/4)" #calc "$rbigcyl*sin(constant::mathematical::pi*3/4)"  0.0) //8
+    (#calc "-$rbigcyl" 0  0) //9
+
+    ($rcyl      0       $z) //10
+    (#calc "$rcyl*cos(constant::mathematical::pi/4)" #calc "$rcyl*sin(constant::mathematical::pi/4)"  $z) //11
+    (#calc "$rcyl*cos(constant::mathematical::pi*2/4)" #calc "$rcyl*sin(constant::mathematical::pi*2/4)"  $z) //12
+    (#calc "$rcyl*cos(constant::mathematical::pi*3/4)" #calc "$rcyl*sin(constant::mathematical::pi*3/4)"  $z) //13
+    (#calc "-$rcyl" 0  $z) //14
+
+    ($rbigcyl      0       $z) //15
+    (#calc "$rbigcyl*cos(constant::mathematical::pi/4)" #calc "$rbigcyl*sin(constant::mathematical::pi/4)"  $z) //16
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*2/4)" #calc "$rbigcyl*sin(constant::mathematical::pi*2/4)"  $z) //17
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*3/4)" #calc "$rbigcyl*sin(constant::mathematical::pi*3/4)"  $z) //18
+    (#calc "-$rbigcyl" 0  $z) //19
+
+    ($xmin 0 0) //20
+    ($xmin #calc "$rbigcyl*sin(constant::mathematical::pi*3/4)" 0) //21
+    ($xmin $ymax 0) //22
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*3/4)" $ymax 0) //23
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*2/4)" $ymax 0) //24
+    (#calc "$rbigcyl*cos(constant::mathematical::pi/4)" $ymax 0) //25
+    ($xmax 0 0) //26
+    ($xmax #calc "$rbigcyl*sin(constant::mathematical::pi/4)" 0) //27
+    ($xmax $ymax 0) //28
+
+    ($xmin 0 $z) //29
+    ($xmin #calc "$rbigcyl*sin(constant::mathematical::pi*3/4)" $z) //30
+    ($xmin $ymax $z) //31
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*3/4)" $ymax $z) //32
+    (#calc "$rbigcyl*cos(constant::mathematical::pi*2/4)" $ymax $z) //33
+    (#calc "$rbigcyl*cos(constant::mathematical::pi/4)" $ymax $z) //34
+    ($xmax 0 $z) //35
+    ($xmax #calc "$rbigcyl*sin(constant::mathematical::pi/4)" $z) //36
+    ($xmax $ymax $z) //37
+);
+
+edges
+(
+    arc    0  1 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi/8.0)"   0.0)
+    arc    1  2 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*3/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*3/8.0)"   0.0)
+    arc    2  3 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*5/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*5/8.0)"   0.0)
+    arc    3  4 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*7/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*7/8.0)"   0.0)
+    arc    5  6 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi/8.0)"   0.0)
+    arc    6  7 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*3/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*3/8.0)"   0.0)
+    arc    7  8 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*5/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*5/8.0)"   0.0)
+    arc    8  9 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*7/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*7/8.0)"   0.0)
+    arc    10  11 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi/8.0)"   $z)
+    arc    11  12 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*3/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*3/8.0)"   $z)
+    arc    12  13 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*5/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*5/8.0)"   $z)
+    arc    13  14 (  #calc "$rcyl*Foam::cos(constant::mathematical::pi*7/8.0)"  #calc "$rcyl*Foam::sin(constant::mathematical::pi*7/8.0)"   $z)
+    arc    15  16 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi/8.0)"   $z)
+    arc    16  17 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*3/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*3/8.0)"   $z)
+    arc    17  18 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*5/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*5/8.0)"   $z)
+    arc    18  19 (  #calc "$rbigcyl*Foam::cos(constant::mathematical::pi*7/8.0)"  #calc "$rbigcyl*Foam::sin(constant::mathematical::pi*7/8.0)"   $z)
+);
+
+blocks
+(
+	hex (0 5 6 1 10 15 16 11)   ($ncyl_bl $ncyl_res 1) simpleGrading (1  1  1)
+	hex (1 6 7 2 11 16 17 12)   ($ncyl_bl $ncyl_res 1) simpleGrading (1  1  1)
+	hex (2 7 8 3 12 17 18 13)   ($ncyl_bl $ncyl_res 1) simpleGrading (1  1  1)
+	hex (3 8 9 4 13 18 19 14)   ($ncyl_bl $ncyl_res 1) simpleGrading (1  1  1)
+
+    hex (20 9 8 21 29 19 18 30) ($nax1 $ncyl_res 1) simpleGrading (1  1  1)
+    hex (5 26 27 6 15 35 36 16) ($nax2 $ncyl_res 1) simpleGrading (1  1  1)
+    hex (7 6 25 24 17 16 34 33) ($ncyl_res $nrad 1) simpleGrading (1  1  1)
+    hex (8 7 24 23 18 17 33 32) ($ncyl_res $nrad 1) simpleGrading (1  1  1)
+    hex (21 8 23 22 30 18 32 31) ($nax1 $nrad 1) simpleGrading (1  1  1)
+    hex (6 27 28 25 16 36 37 34) ($nax2 $nrad 1) simpleGrading (1  1  1)
+
+);
+
+patches
+(
+    wall reactingWall
+    (
+        (1 11 10 0)
+        (2 12 11 1)
+        (3 13 12 2)
+        (4 14 13 3)
+    )
+
+    wall inertWall
+    (
+        (23 32 31 22)
+        (24 33 32 23)
+        (25 34 33 24)
+        (28 37 34 25)
+    )
+
+    patch inlet
+    (
+        (26 35 36 27)
+        (27 36 37 28)
+    )
+
+    patch outlet
+    (
+        (22 31 30 21)
+        (21 30 29 20)
+    )
+
+    patch axis
+    (
+        (0 10 15 5)
+        (5 15 35 26)
+        (9 19 14 4)
+        (20 29 19 9)
+    )
+
+    empty front
+    (        
+        (0 5 6 1)
+        (1 6 7 2)
+        (2 7 8 3)
+        (3 8 9 4)
+        (20 9 8 21)
+        (5 26 27 6)
+        (7 6 25 24)
+        (8 7 24 23)
+        (21 8 23 22)
+        (6 27 28 25)
+    )
+
+    empty back
+    (      
+        (15 10 11 16)
+        (16 11 12 17)
+        (17 12 13 18)
+        (18 13 14 19)
+        (19 29 30 18)
+        (35 15 16 36)
+        (16 17 33 34)
+        (17 18 32 33)
+        (18 30 31 32)
+        (36 16 34 37)
+    )
+);
+
+mergePatchPairs 
+(
+);
+
+// ************************************************************************* //
