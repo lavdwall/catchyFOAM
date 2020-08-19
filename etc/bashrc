@@ -19,7 +19,7 @@
 #
 # Location of catchyFOAM files
 # Please set to the appropriate path if the default is not correct
-export CATCHY_DIR=$HOME/OpenFOAM/catchyFOAM-8
+export CATCHY_DIR=$HOME/OpenFOAM/catchyFOAM
 #
 # Location of cantera installation
 # Please set to the appropriate path if the default is not correct
