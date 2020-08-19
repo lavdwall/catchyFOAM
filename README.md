@@ -24,7 +24,7 @@ For Ubuntu, the following commands should do the trick
     pip3 install Cython
     
     cd cantera
-    scons build prefix='$HOME/.local'
+    scons build prefix='$HOME/.local' python_cmd=/usr/bin/python3
     scons install
     cd ..
 ```
