@@ -1,3 +1,4 @@
 writeCylindricalCoordinates/writeCylindricalCoordinates.C
+writeUCylindricalCoordinates/writeUCylindricalCoordinates.C
 
 LIB = $(FOAM_USER_LIBBIN)/libcatchyFunctionObjects

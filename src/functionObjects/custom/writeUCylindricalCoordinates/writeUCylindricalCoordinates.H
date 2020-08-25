@@ -22,19 +22,18 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    Foam::functionObjects::writeCylindricalCoordinates
+    Foam::functionObjects::writeUCylindricalCoordinates
 
 Description
-    Writes the cell-centres volVectorField and the three component fields as
-    volScalarFields.
 
     Example of function object specification:
     \verbatim
-    writeCylindricalCoordinates
+    writeUCylindricalCoordinates
     {
-        type        writeCylindricalCoordinates;
+        type        writeUCylindricalCoordinates;
         libs        ("libcatchyFunctionObjects.so");
         axis        2;
+        U           U.gas;
         ...
     }
     \endverbatim
@@ -42,20 +41,21 @@ Description
 Usage
     \table
         Property  | Description                 | Required    | Default value
-        type      | type name: writeCylindricalCoordinates | yes       |
+        type      | type name: writeUCylindricalCoordinates | yes       |
         axis      | the axis of the cylinder | yes       |
+        U         | list of velocity field names | yes |
     \endtable
 
 See also
     Foam::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-    writeCylindricalCoordinates.C
+    writeUCylindricalCoordinates.C
 
 \*---------------------------------------------------------------------------*/
 
-#ifndef functionObjects_writeCylindricalCoordinates_H
-#define functionObjects_writeCylindricalCoordinates_H
+#ifndef functionObjects_writeUCylindricalCoordinates_H
+#define functionObjects_writeUCylindricalCoordinates_H
 
 #include "fvMeshFunctionObject.H"
 #include "volFields.H"
@@ -68,10 +68,10 @@ namespace functionObjects
 {
 
 /*---------------------------------------------------------------------------*\
-                       Class writeCylindricalCoordinates Declaration
+                       Class writeUCylindricalCoordinates Declaration
 \*---------------------------------------------------------------------------*/
 
-class writeCylindricalCoordinates
+class writeUCylindricalCoordinates
 :
     public fvMeshFunctionObject
 {
@@ -79,17 +79,18 @@ class writeCylindricalCoordinates
     const label axDir;
     const volScalarField rad;
     const volScalarField theta;
+    const wordList Unames_;
 
 public:
 
     //- Runtime type information
-    TypeName("writeCylindricalCoordinates");
+    TypeName("writeUCylindricalCoordinates");
 
 
     // Constructors
 
         //- Construct from Time and dictionary
-        writeCylindricalCoordinates
+        writeUCylindricalCoordinates
         (
             const word& name,
             const Time& runTime,
@@ -97,11 +98,11 @@ public:
         );
 
         //- Disallow default bitwise copy construction
-        writeCylindricalCoordinates(const writeCylindricalCoordinates&) = delete;
+        writeUCylindricalCoordinates(const writeUCylindricalCoordinates&) = delete;
 
 
     //- Destructor
-    virtual ~writeCylindricalCoordinates();
+    virtual ~writeUCylindricalCoordinates();
 
 
     // Member Functions
@@ -116,7 +117,7 @@ public:
     // Member Operators
 
         //- Disallow default bitwise assignment
-        void operator=(const writeCylindricalCoordinates&) = delete;
+        void operator=(const writeUCylindricalCoordinates&) = delete;
 };
 
 
