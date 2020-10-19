@@ -46,13 +46,7 @@ License
         StandardChemistryModel,                                                \
         ReactionThermo,                                                        \
         ThermoPhysics                                                          \
-    );                                                                         \
-    defineChemistrySolver                                                      \
-    (                                                                          \
-        TDACChemistryModel,                                                    \
-        ReactionThermo,                                                        \
-        ThermoPhysics                                                          \
-    )
+    );
 
 #define makeChemistrySolvers(Solver, ReactionThermo, ThermoPhysics)            \
     makeChemistrySolver                                                        \
@@ -61,14 +55,7 @@ License
         StandardChemistryModel,                                                \
         ReactionThermo,                                                        \
         ThermoPhysics                                                          \
-    );                                                                         \
-    makeChemistrySolver                                                        \
-    (                                                                          \
-        Solver,                                                                \
-        TDACChemistryModel,                                                    \
-        ReactionThermo,                                                        \
-        ThermoPhysics                                                          \
-    )
+    ); 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
