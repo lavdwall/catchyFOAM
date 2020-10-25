@@ -65,9 +65,3 @@ generated in the gas phase, by enabling the 'multiphaseReactionHeat' option
 reactions in both the gas phase and particles phase. The segregated chemistry 
 approach is used. Mass transfer is modeled using a film model with mass transfer 
 coefficient from an analogy with the Gunn correlation for heat transfer. 
-
-
-*More information can be found in Chapter 5 of my PhD thesis:*
-*Laurien Vandewalle (2020),* 
-*"Process intensification of oxidative coupling of methane"* 
-*(available for download [here](https://biblio.ugent.be/publication/8663163)).*
