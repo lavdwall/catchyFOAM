@@ -285,25 +285,25 @@ void Foam::SurfaceReaction<ReactionThermo>::omega
     forAll(this->lhs(), s)
     {
         label si = this->lhs()[s].index + nGases_;
-        label sl = this->lhs()[s].stoichCoeff;
+        scalar sl = this->lhs()[s].stoichCoeff;
         dcdt[si] -= sl*omegai; // [kmol/m2]
     }
     forAll(this->glhs(), g)
     {
         label gi = this->glhs()[g].index;
-        label gl = this->glhs()[g].stoichCoeff;
+        scalar gl = this->glhs()[g].stoichCoeff;
         dcdt[gi] -= gl*omegai; // [kmol/m2]
     }
     forAll(this->rhs(), s)
     {
         label si = this->rhs()[s].index + nGases_;
-        label sr = this->rhs()[s].stoichCoeff;
+        scalar sr = this->rhs()[s].stoichCoeff;
         dcdt[si] += sr*omegai; // [kmol/m2]
     }
     forAll(this->grhs(), g)
     {
         label gi = this->grhs()[g].index;
-        label gr = this->grhs()[g].stoichCoeff;
+        scalar gr = this->grhs()[g].stoichCoeff;
         dcdt[gi] += gr*omegai; // [kmol/m2]
     }
 }
@@ -460,25 +460,25 @@ void Foam::SurfaceReaction<ReactionThermo>::dwdc
     forAll(this->lhs(), s)
     {
         label si = this->lhs()[s].index + nGases_;
-        label sl = this->lhs()[s].stoichCoeff;
+        scalar sl = this->lhs()[s].stoichCoeff;
         dcdt[si] -= sl*omegaI; // [kmol/m2]
     }
     forAll(this->glhs(), g)
     {
         label gi = this->glhs()[g].index;
-        label gl = this->glhs()[g].stoichCoeff;
+        scalar gl = this->glhs()[g].stoichCoeff;
         dcdt[gi] -= gl*omegaI; // [kmol/m2]
     }
     forAll(this->rhs(), s)
     {
         label si = this->rhs()[s].index + nGases_;
-        label sr = this->rhs()[s].stoichCoeff;
+        scalar sr = this->rhs()[s].stoichCoeff;
         dcdt[si] += sr*omegaI; // [kmol/m2]
     }
     forAll(this->grhs(), g)
     {
         label gi = this->grhs()[g].index;
-        label gr = this->grhs()[g].stoichCoeff;
+        scalar gr = this->grhs()[g].stoichCoeff;
         dcdt[gi] += gr*omegaI; // [kmol/m2]
     }
 
