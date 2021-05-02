@@ -1,6 +1,8 @@
 # README for catchyFOAM
 Laurien Vandewalle, August 2020
 
+For any problems related to installation or other questions regarding the code, contact Laurien.Vandewalle@UGent.be
+
 ## About catchyFOAM
 catchyFOAM (CATCHY = CATalytic CHemistrY) provides a set of OpenFOAM libraries, solvers and utilities for problems involving heterogeneous catalytic chemistry.<br/><br/>
 The most important developments are made in the thermophysicalModels library, which is at the basis of many other libraries (such as combustionModels, ThermophysicalTransportModels, ...). The necessary libraries depending on thermophysicalModels are therefore copied from the local OpenFOAM installation, linked to the catchyFOAM thermo and recompiled. These *new* libraries are then used in the catchyFOAM solvers and utilities.
