@@ -56,4 +56,5 @@ To clean the installation, run
 ```
 
 ## Documentation
-... work in progress ...
+
+See the corresponding paper: https://pubs.acs.org/doi/10.1021/acs.energyfuels.0c02824
