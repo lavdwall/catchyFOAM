@@ -16,7 +16,7 @@ catchyFOAM comes with a utility to convert Cantera mechanism files into OpenFOAM
 
 Get the Cantera source code from Github and switch to the correct branch via
 ```
-    git clone https://github.com/lavdwall/cantera.git --branch gas_transport_access
+    git clone https://github.com/Cantera/cantera
 ```
 
 Detailed installation instructions can be found [here](https://cantera.org/install/compiling-install.html). 
