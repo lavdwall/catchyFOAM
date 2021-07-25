@@ -29,6 +29,8 @@ Description
 #endif
 
 #include <cantera/base/Solution.h>
+#include <cantera/base/utilities.h>
+#include <cantera/thermo/Species.h>
 #include <cantera/thermo/IdealGasPhase.h>
 #include <cantera/thermo/SurfPhase.h>
 #include <cantera/kinetics/GasKinetics.h>
@@ -128,9 +130,31 @@ int main(int argc, char *argv[])
         "read and convert surface chemistry and thermo"
     );
 
+    argList::addOption
+    (
+        "transportMode",
+        "word",
+        "transport model type (CK = Polynomial<4>, other = Polynomial<5>)"
+    );
+
     argList args(argc, argv);
 
     bool surf_ = args.optionFound("surface");
+    bool fm_mode = args.optionFound("transportMode");
+    int m_mode = 10;
+    if (fm_mode)
+    {
+        word m_mode_name;
+        args.optionReadIfPresent("transportMode", m_mode_name);
+        if (m_mode_name == "CK")
+        {
+            m_mode = 10;
+        }
+        else
+        {
+            m_mode = 0;
+        }
+    }
 
     // Gas phase
 
@@ -148,7 +172,6 @@ int main(int argc, char *argv[])
                 );
         shared_ptr<IdealGasPhase> ctgas_thermo = std::dynamic_pointer_cast<IdealGasPhase>(ctgassol->thermo());
         shared_ptr<GasKinetics> ctgas_kin = std::dynamic_pointer_cast<GasKinetics>(ctgassol->kinetics());
-        shared_ptr<MixTransport> ctgas_trans = std::dynamic_pointer_cast<MixTransport>(ctgassol->transport());
 
         // Create gas species table
         Info<< indent << "- Reading gas species names" << endl;
@@ -188,7 +211,7 @@ int main(int argc, char *argv[])
 
             currentSpecieName = gasSpecies[i];
             currentMolecularWeight = ctgas_thermo->molecularWeight(i);
-	          ctgas_thermo->species(i)->thermo->reportParameters(is, tType, currentLowT, currentHighT, pRef_, &coeffs_[0]);
+	        ctgas_thermo->species(i)->thermo->reportParameters(is, tType, currentLowT, currentHighT, pRef_, &coeffs_[0]);
             currentCommonT = coeffs_[0];
 
             for (label coefLabel=0; coefLabel<gasHThermoPhysics::nCoeffs_; coefLabel++)
@@ -247,33 +270,41 @@ int main(int argc, char *argv[])
             }
 
             gtempDict.subDict(gasSpecies[gi]).add("elements", elementsDict);
+
+            if (transportDict_.subDict(gasSpecies[gi]).subDict("transport").found("mu"))
+                gtempDict.subDict(gasSpecies[gi]).subDict("transport")
+                    .add("mu", transportDict_.subDict(gasSpecies[gi]).subDict("transport").lookup("mu"));
+            if (transportDict_.subDict(gasSpecies[gi]).subDict("transport").found("Pr"))
+                gtempDict.subDict(gasSpecies[gi]).subDict("transport")
+                    .add("Pr", transportDict_.subDict(gasSpecies[gi]).subDict("transport").lookup("Pr"));
         }
 
         // Optionally read and write transport data
         if (args.optionFound("transport"))
-        {
+        {            
+            shared_ptr<MixTransport> ctgas_trans = std::dynamic_pointer_cast<MixTransport>(ctgassol->transport());
+            scalarField coeffs(8, 0.0);
+
             forAll(gasSpecies, i)
             {
-                double muCoeffsCt_[8];
-                double kappaCoeffsCt_[8];
-                int ctCoeffsSize = 4; // 4 for CK_Mode, otherwise 5
-                for(int k=0; k<ctCoeffsSize; k++)
+                ctgas_trans->getViscosityPolynomials(i, coeffs.begin());
+                Polynomial<8> muCoeffs_(coeffs);
+                ctgas_trans->getConductivityPolynomials(i, coeffs.begin());
+                Polynomial<8> kappaCoeffs_(coeffs);
+
+                List<Polynomial<8>> DkjCoeffs_(gasSpecies.size());
+                forAll(gasSpecies, j)
                 {
-                    muCoeffsCt_[k] = ctgas_trans->viscosityPolynomials()[i][k];
-                    kappaCoeffsCt_[k] = ctgas_trans->conductivityPolynomials()[i][k];
+                    ctgas_trans->getBinDiffusivityPolynomials(i, j, coeffs.begin());
+                    DkjCoeffs_[j] = Polynomial<8>(coeffs);
                 }
-                for (int k=ctCoeffsSize; k<8; k++)
-                {
-                    muCoeffsCt_[k] = 0.0;
-                    kappaCoeffsCt_[k] = 0.0;
-                }
-                Polynomial<8> muCoeffs_(muCoeffsCt_);
-                Polynomial<8> kappaCoeffs_(kappaCoeffsCt_);
 
                 gtempDict.subDict(gasSpecies[i]).subDict("transport")
                         .add("muLogCoeffs<8>", muCoeffs_);
                 gtempDict.subDict(gasSpecies[i]).subDict("transport")
                         .add("kappaLogCoeffs<8>", kappaCoeffs_);
+                gtempDict.subDict(gasSpecies[i]).subDict("transport")
+                        .add("DkjLogCoeffs<8>", DkjCoeffs_);
             }
         }
 
@@ -344,6 +375,26 @@ int main(int argc, char *argv[])
         dictionary stempDict(IStringStream(oss.str())());
 
         wordList ssList(stempDict.toc());
+
+        forAll(solidSpecies, si)
+        {
+            dictionary elementsDict("elements");
+            scalarField nei(elements.size());
+            ctsurf_thermo->getAtoms(si, nei.begin());
+            forAll(nei, ei)
+            {
+                if (nei[ei] != 0)
+                {
+                    elementsDict.add
+                    (
+                        elements[ei],
+                        nei[ei]
+                    );
+                }
+            }
+
+            stempDict.subDict(solidSpecies[si]).add("elements", elementsDict);
+        }
 
         // Add elements
         forAll(ssList, si)
