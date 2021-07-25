@@ -14,7 +14,7 @@ catchyFOAM is compatible with OpenFOAM-8 (OpenFOAM Foundation). For download ins
 ### (optional) Cantera
 catchyFOAM comes with a utility to convert Cantera mechanism files into OpenFOAM format, <span style="font-family:Courier;">canteraToFoam</span> (as an alternative to the <span style="font-family:Courier;">chemkinToFoam</span> utility available by default). To install <span style="font-family:Courier;">canteraToFoam</span>, Cantera needs to be installed.
 
-Get the Cantera source code from Github and switch to the correct branch via
+Get the Cantera source code from Github
 ```
     git clone https://github.com/Cantera/cantera
 ```
